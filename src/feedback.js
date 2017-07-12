@@ -1,13 +1,12 @@
 const domains = ['gmail.com', 'hotmail.com', 'outlook.com'];
 const levenshteinMax = 3; // >levenshteinMax should not be considered similar
 
-/*returns an object of the form :
+/* returns an object of the form :
 { type: 'error', message: 'that doenst look like an email'}
 or
 {type: 'warning', sugestion: 'dsfds@dfg.com', isValidEmail: false}
 or 
-null
-*/
+null */
 function getFeedback(rawEmail) {
     if (rawEmail.trim() === '')
         return { type: 'error', message: `Email can't be empty!` };
@@ -22,7 +21,7 @@ function getFeedback(rawEmail) {
         if (domains.includes(domain)) {
             return null; //if the domain is in domains, no need to suggest
         } else {
-            //if its not in domains, see if it can find a similar domain
+            //if it's not in domains, see if it can find a similar domain
             const similarDomain = domains.reduce((acc, curr, i) => {
                 //acc = {index: 7, distance: 4} or null
 
@@ -41,19 +40,19 @@ function getFeedback(rawEmail) {
                 return null;
             }
         }
-    } else { //its not a proper email, try to make it one
+    } else { //it's not a proper email, try to make it one
         for (const domain of domains) {
-            //try to fix if its missing @
+            //try to fix if it's missing @
             if (!pseudoEmail.includes('@') && pseudoEmail.includes(domain) && emailRegEx.test(pseudoEmail.replace(domain, '@' + domain))) {
                 return { type: 'warning',  suggestion: pseudoEmail.replace(domain, '@' + domain), isValidEmail: false };
             }
 
-            //try to fix if its missing a . and domain to test has no subdomains
+            //try to fix if it's missing a . and domain to test has no subdomains
             if (!pseudoEmail.includes('.') && pseudoEmail.includes(domain.replace('.', '')) && emailRegEx.test(pseudoEmail.replace(domain.replace('.', ''), domain))) {
                 return { type: 'warning',  suggestion: pseudoEmail.replace(domain.replace('.', ''), domain), isValidEmail: false };
             }
 
-            //try to fix if its missing both @ and . and domain to test has no subdomains
+            //try to fix if it's missing both @ and . and domain to test has no subdomains
             if (!pseudoEmail.includes('@') && !pseudoEmail.includes('.')) {
                 const badDomain = domain.replace('.', '');
                 if (pseudoEmail.includes(badDomain) && emailRegEx.test(pseudoEmail.replace(badDomain, '@' + domain))) {

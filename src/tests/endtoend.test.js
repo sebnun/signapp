@@ -1,4 +1,4 @@
-var Nightmare = require('nightmare');
+const Nightmare = require('nightmare');
 
 let inputData;
 let browser;
