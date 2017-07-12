@@ -1,5 +1,5 @@
 const domains = ['gmail.com', 'hotmail.com', 'outlook.com'];
-const levenshteinMax = 3; // >levenshteinMax should not be considered similar
+const levenshteinMax = 3; // > levenshteinMax should not be considered similar
 
 /* returns an object of the form :
 { type: 'error', message: 'that doenst look like an email'}
