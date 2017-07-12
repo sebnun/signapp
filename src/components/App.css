@@ -1,0 +1,72 @@
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.loginform {
+  padding: 10px;
+  min-width: 300px;
+  border: 1px solid #dddddd;
+  margin: 20px
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #dddddd;
+  font-size: 1em;
+  padding: 10px
+}
+
+input[type="submit"] {
+  margin-top: 30px;
+  background-color: green;
+  color: white;
+}
+input[type="submit"]:disabled {
+  background-color: #dddddd;
+}
+
+label {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+label.warning {
+  display: block;
+  text-align: center;
+  color: orange;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+input.warning {
+  border: 1px solid orange;
+}
+
+label.error {
+  display: block;
+  text-align: center;
+  color: red;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+input.error {
+  border: 1px solid red;
+}
+
+h1 {
+  text-align: center;
+}
+
+
+@media only screen and (max-width: 320px) {
+ .loginform {
+   border: 0; 
+ } 
+}
+
+
