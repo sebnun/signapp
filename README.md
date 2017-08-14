@@ -1,3 +1,14 @@
+## An experiment showing a way to validate emails in signup forms.
+
+This signup form will prevent a user from typing a wrong e-mail (e-mail with a typo). 
+For example, “user@gnail.com” is a typo, user probably meant “user@gmail.com”. 
+In “abcgmail.com” user probably meant “abc@gmail.com”.
+
+So, this user interface will:
+* Visually indicate if user is trying to use wrong email
+* Prevent user from clicking “Submit” button with wrong email
+* Provide a “good user experience”, solving a problem of typing incorrect email
+
 [Live demo!](https://sebnun.github.io/signapp/)
 
 ### Run locally
